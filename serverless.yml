@@ -1,0 +1,21 @@
+service: test
+
+plugins:
+  - serverless-offline
+
+provider:
+  name: aws
+  region: eu-central-1
+
+custom:
+  serverless-offline:
+    # allow external connections
+    host: 0.0.0.0
+
+functions:
+  slash:
+    handler: index.slash
+    events:
+      - http:
+          path: /slash
+          method: post
